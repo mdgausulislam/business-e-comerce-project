@@ -12,7 +12,7 @@ function Login() {
     })
 
     const handleOnChange = (e) => {
-        const [name, value] = e.target;
+        const { name, value } = e.target;
 
         setData((prev) => {
             return {
@@ -20,6 +20,12 @@ function Login() {
                 [name]: value
             }
         })
+    }
+
+    console.log("data login", data);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
     }
 
     return (
@@ -30,7 +36,7 @@ function Login() {
                         <img src={loginIcons} alt='login icons' />
                     </div>
 
-                    <form className='pt-6 flex flex-col gap-2'>
+                    <form className='pt-6 flex flex-col gap-2' onSubmit={handleSubmit}>
                         <div className='grid'>
                             <label>Email : </label>
                             <div className='bg-slate-100 p-2'>
@@ -38,6 +44,8 @@ function Login() {
                                     type='email'
                                     placeholder='Enter Your Email'
                                     name='email'
+                                    onChange={handleOnChange}
+                                    value={data.email}
                                     className='w-full h-full outline-none bg-transparent' />
                             </div>
                         </div>
@@ -49,6 +57,8 @@ function Login() {
                                     type={showPassword ? "text" : "password"}
                                     placeholder='enter password'
                                     name='password'
+                                    onChange={handleOnChange}
+                                    value={data.password}
                                     className='w-full h-full outline-none bg-transparent' />
                                 <div className='cursor-pointer text-xl' onClick={() => setShowPassword((prev) => !prev)}>
                                     <span>
