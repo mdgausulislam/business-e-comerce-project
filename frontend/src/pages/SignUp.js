@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import loginIcons from '../assest/signin.gif'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import imageTobase64 from '../helpers/ImageToBase64';
+import SummaryApi from '../common';
+import { toast } from 'react-toastify';
 
 
 function SignUp() {
+    const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState();
@@ -44,10 +47,31 @@ function SignUp() {
         })
     }
 
-    console.log("data login", data);
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (data.password === data.confirmPassword) {
+            const dataResponse = await fetch(SummaryApi.signup.url, {
+                method: SummaryApi.signup.method,
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            const dataApi = await dataResponse.json()
+
+            if (dataApi.success) {
+                toast.success(dataApi.message)
+                navigate("/login")
+            }
+
+            if (dataApi.error) {
+                toast.error(dataApi.message)
+            }
+
+        } else {
+            toast.error("Please check password and confirm password")
+        }
     }
 
     return (
