@@ -3,15 +3,17 @@ const express = require("express");
 
 const router = express.Router();
 
-const userSignUpController = require('../controllers/userSignUp');
-const userSignInController = require("../controllers/userSignIn");
+const userSignUpController = require('../controllers/user/userSignUp');
+const userSignInController = require("../controllers/user/userSignIn");
 const authToken = require("../middleware/authToken");
-const userDetailsController = require("../controllers/userDetails");
-const userLogout = require("../controllers/userLogout");
-const allUsers = require("../controllers/allUsers");
-const updateUser = require("../controllers/updateUser");
-const UploadProductController = require("../controllers/uploadProduct");
-const getProductController = require("../controllers/getProducts");
+const userDetailsController = require("../controllers/user/userDetails");
+const userLogout = require("../controllers/user/userLogout");
+const allUsers = require("../controllers/user/allUsers");
+const updateUser = require("../controllers/user/updateUser");
+const UploadProductController = require("../controllers/product/uploadProduct");
+const getProductController = require("../controllers/product/getProducts");
+const updateProductController = require("../controllers/product/updateProduct");
+const getCategoryProduct = require("../controllers/product/getCategoryProduct");
 
 router.post("/signup", userSignUpController)
 router.post("/signin", userSignInController)
@@ -27,8 +29,8 @@ router.post("/update-user", authToken, updateUser)
 //product
 router.post("/upload-product", authToken, UploadProductController)
 router.get("/get-product", getProductController)
-// router.post("/update-product",authToken,updateProductController)
-// router.get("/get-categoryProduct",getCategoryProduct)
+router.post("/update-product", authToken, updateProductController)
+router.get("/get-categoryProduct", getCategoryProduct)
 // router.post("/category-product",getCategoryWiseProduct)
 // router.post("/product-details",getProductDetails)
 // router.get("/search",searchProduct)

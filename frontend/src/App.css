@@ -16,6 +16,7 @@
 }
 
 /**scrollbar hidden****/
-/* .scrollbar-none::-webkit-scrollbar {
+
+.scrollbar-none::-webkit-scrollbar {
     display: none;
-} */
+}

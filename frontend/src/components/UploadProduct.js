@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { CgClose } from "react-icons/cg";
+import productCategory from '../helpers/ProductCategory';
 import { FaCloudUploadAlt } from "react-icons/fa";
 import uploadImage from '../helpers/uploadImage';
+import DisplayImage from './displayImage';
 import { MdDelete } from "react-icons/md";
 import SummaryApi from '../common';
 import { toast } from 'react-toastify'
-import productCategory from '../helpers/ProductCategory';
-import DisplayImage from './displayImage';
-
 
 const UploadProduct = ({
     onClose,
-    // fetchData
+    fetchData
 }) => {
     const [data, setData] = useState({
         productName: "",
@@ -39,11 +38,7 @@ const UploadProduct = ({
 
     const handleUploadProduct = async (e) => {
         const file = e.target.files[0]
-
-        console.log("files", file);
         const uploadImageCloudinary = await uploadImage(file)
-
-        console.log("upload products", uploadImageCloudinary);
 
         setData((preve) => {
             return {
@@ -73,8 +68,6 @@ const UploadProduct = ({
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        console.log("data", data);
-
         const response = await fetch(SummaryApi.uploadProduct.url, {
             method: SummaryApi.uploadProduct.method,
             credentials: 'include',
@@ -89,7 +82,7 @@ const UploadProduct = ({
         if (responseData.success) {
             toast.success(responseData?.message)
             onClose()
-            // fetchData()
+            fetchData()
         }
 
 
@@ -116,7 +109,7 @@ const UploadProduct = ({
                     <input
                         type='text'
                         id='productName'
-                        placeholder='Enter product name'
+                        placeholder='enter product name'
                         name='productName'
                         value={data.productName}
                         onChange={handleOnChange}
@@ -129,7 +122,7 @@ const UploadProduct = ({
                     <input
                         type='text'
                         id='brandName'
-                        placeholder='Enter brand name'
+                        placeholder='enter brand name'
                         value={data.brandName}
                         name='brandName'
                         onChange={handleOnChange}
@@ -166,7 +159,7 @@ const UploadProduct = ({
                                     {
                                         data.productImage.map((el, index) => {
                                             return (
-                                                <div key={index} className='relative group'>
+                                                <div className='relative group'>
                                                     <img
                                                         src={el}
                                                         alt={el}
@@ -198,7 +191,7 @@ const UploadProduct = ({
                     <input
                         type='number'
                         id='price'
-                        placeholder='Enter price'
+                        placeholder='enter price'
                         value={data.price}
                         name='price'
                         onChange={handleOnChange}
@@ -211,7 +204,7 @@ const UploadProduct = ({
                     <input
                         type='number'
                         id='sellingPrice'
-                        placeholder='Enter selling price'
+                        placeholder='enter selling price'
                         value={data.sellingPrice}
                         name='sellingPrice'
                         onChange={handleOnChange}
@@ -222,7 +215,7 @@ const UploadProduct = ({
                     <label htmlFor='description' className='mt-3'>Description :</label>
                     <textarea
                         className='h-28 bg-slate-100 border resize-none p-1'
-                        placeholder='Enter product description'
+                        placeholder='enter product description'
                         rows={3}
                         onChange={handleOnChange}
                         name='description'
@@ -230,9 +223,18 @@ const UploadProduct = ({
                     >
                     </textarea>
 
+
+
+
+
                     <button className='px-3 py-2 bg-red-600 text-white mb-10 hover:bg-red-700'>Upload Product</button>
                 </form>
+
+
+
+
             </div>
+
 
 
             {/***display image full screen */}

@@ -92,7 +92,6 @@ const AdminEditProduct = ({
             toast.error(responseData?.message)
         }
 
-
     }
 
     return (
@@ -161,7 +160,7 @@ const AdminEditProduct = ({
                                     {
                                         data.productImage.map((el, index) => {
                                             return (
-                                                <div className='relative group'>
+                                                <div key={index} className='relative group'>
                                                     <img
                                                         src={el}
                                                         alt={el}
