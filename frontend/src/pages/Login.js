@@ -9,13 +9,13 @@ import Context from '../context';
 
 function Login() {
     const navigate = useNavigate();
-    const { fetchUserDetails } = useContext(Context)
     const [showPassword, setShowPassword] = useState(false);
     const [data, setData] = useState({
         email: "",
         password: "",
     })
 
+    const { fetchUserDetails, fetchUserAddToCart } = useContext(Context)
     const handleOnChange = (e) => {
         const { name, value } = e.target;
 
@@ -47,6 +47,7 @@ function Login() {
             toast.success(dataApi.message)
             navigate('/')
             fetchUserDetails()
+            fetchUserAddToCart()
         }
 
         if (dataApi.error) {

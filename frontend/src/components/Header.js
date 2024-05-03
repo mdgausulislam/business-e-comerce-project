@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,12 +8,14 @@ import SummaryApi from '../common';
 import { setUserDetails } from '../store/userSlice';
 import { toast } from 'react-toastify';
 import ROLE from '../common/role';
+import Context from '../context';
 
 export const Header = () => {
     const user = useSelector(state => state?.user?.user)
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [menuDisplay, setMenuDisplay] = useState(false)
+    const context = useContext(Context)
 
 
     const handleLogout = async () => {
@@ -86,12 +88,18 @@ export const Header = () => {
                     </div>
 
 
-                    <div className='text-3xl relative'>
-                        <span>  <FaShoppingCart /></span>
-                        <div className='bg-red-600 text-white w-5 h-5 rounded-full p-1 flex justify-center items-center absolute -top-2 -right-3'>
-                            <p className='text-sm'>0</p>
-                        </div>
-                    </div>
+                    {
+                        user?._id && (
+                            <Link to={"/cart"} className='text-2xl relative'>
+                                <span><FaShoppingCart /></span>
+
+                                <div className='bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3'>
+                                    <p className='text-sm'>{context?.cartProductCount}</p>
+                                </div>
+                            </Link>
+                        )
+                    }
+
                     <div>
                         {
                             user?._id ? (

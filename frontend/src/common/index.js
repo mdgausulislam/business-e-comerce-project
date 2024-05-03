@@ -49,14 +49,14 @@ const SummaryApi = {
         url: `${backendDomain}/api/product-details`,
         method: 'post'
     },
-    // addToCartProduct: {
-    //     url: `${backendDomin}/api/addtocart`,
-    //     method: 'post'
-    // },
-    // addToCartProductCount: {
-    //     url: `${backendDomin}/api/countAddToCartProduct`,
-    //     method: 'get'
-    // },
+    addToCartProduct: {
+        url: `${backendDomain}/api/addtocart`,
+        method: 'post'
+    },
+    addToCartProductCount: {
+        url: `${backendDomain}/api/countAddToCartProduct`,
+        method: 'get'
+    },
     // addToCartProductView: {
     //     url: `${backendDomin}/api/view-card-product`,
     //     method: 'get'
