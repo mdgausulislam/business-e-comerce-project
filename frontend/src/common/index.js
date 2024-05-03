@@ -45,10 +45,10 @@ const SummaryApi = {
         url: `${backendDomain}/api/category-product`,
         method: 'post'
     },
-    // productDetails: {
-    //     url: `${backendDomin}/api/product-details`,
-    //     method: 'post'
-    // },
+    productDetails: {
+        url: `${backendDomain}/api/product-details`,
+        method: 'post'
+    },
     // addToCartProduct: {
     //     url: `${backendDomin}/api/addtocart`,
     //     method: 'post'
