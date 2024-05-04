@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SummaryApi from '../common';
 import { setUserDetails } from '../store/userSlice';
@@ -16,6 +16,10 @@ export const Header = () => {
     const dispatch = useDispatch();
     const [menuDisplay, setMenuDisplay] = useState(false)
     const context = useContext(Context)
+    const searchInput = useLocation()
+    const URLSearch = new URLSearchParams(searchInput?.search)
+    const searchQuery = URLSearch.getAll("q")
+    const [search, setSearch] = useState(searchQuery)
 
 
     const handleLogout = async () => {
@@ -38,6 +42,17 @@ export const Header = () => {
 
     }
 
+    const handleSearch = (e) => {
+        const { value } = e.target
+        setSearch(value)
+
+        if (value) {
+            navigate(`/search?q=${value}`)
+        } else {
+            navigate("/search")
+        }
+    }
+
     console.log("user header", user);
     return (
         <header className='h-16 shadow-md bg-white'>
@@ -49,8 +64,9 @@ export const Header = () => {
                         </Link>
                     </h1>
                 </div>
+
                 <div className='hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2'>
-                    <input type='text' placeholder='Search product here...' className='w-full outline-none' />
+                    <input type='text' placeholder='search product here...' className='w-full outline-none' onChange={handleSearch} value={search} />
                     <div className='text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white'>
                         <GrSearch />
                     </div>
