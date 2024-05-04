@@ -55,7 +55,7 @@ export const Header = () => {
 
     console.log("user header", user);
     return (
-        <header className='h-16 shadow-md bg-white'>
+        <header className='h-16 shadow-md bg-white fixed w-full z-40'>
             <div className='h-full container mx-auto flex items-center px-4 justify-between'>
                 <div>
                     <h1 className='font-bold text-2xl text-green-500'>
