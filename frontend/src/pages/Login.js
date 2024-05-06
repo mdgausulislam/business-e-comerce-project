@@ -1,33 +1,32 @@
 import React, { useContext, useState } from 'react'
 import loginIcons from '../assest/signin.gif'
-import { Link, useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
 
-function Login() {
-    const navigate = useNavigate();
-    const [showPassword, setShowPassword] = useState(false);
+const Login = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const [data, setData] = useState({
         email: "",
-        password: "",
+        password: ""
     })
-
+    const navigate = useNavigate()
     const { fetchUserDetails, fetchUserAddToCart } = useContext(Context)
-    const handleOnChange = (e) => {
-        const { name, value } = e.target;
 
-        setData((prev) => {
+    const handleOnChange = (e) => {
+        const { name, value } = e.target
+
+        setData((preve) => {
             return {
-                ...prev,
+                ...preve,
                 [name]: value
             }
         })
     }
 
-    console.log("data login", data);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -58,10 +57,10 @@ function Login() {
 
     console.log("data login", data)
 
-
     return (
         <section id='login'>
             <div className='mx-auto container p-4'>
+
                 <div className='bg-white p-5 w-full max-w-sm mx-auto'>
                     <div className='w-20 h-20 mx-auto'>
                         <img src={loginIcons} alt='login icons' />
@@ -73,10 +72,10 @@ function Login() {
                             <div className='bg-slate-100 p-2'>
                                 <input
                                     type='email'
-                                    placeholder='Enter Your Email'
+                                    placeholder='enter email'
                                     name='email'
-                                    onChange={handleOnChange}
                                     value={data.email}
+                                    onChange={handleOnChange}
                                     className='w-full h-full outline-none bg-transparent' />
                             </div>
                         </div>
@@ -87,16 +86,17 @@ function Login() {
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     placeholder='enter password'
+                                    value={data.password}
                                     name='password'
                                     onChange={handleOnChange}
-                                    value={data.password}
                                     className='w-full h-full outline-none bg-transparent' />
-                                <div className='cursor-pointer text-xl' onClick={() => setShowPassword((prev) => !prev)}>
+                                <div className='cursor-pointer text-xl' onClick={() => setShowPassword((preve) => !preve)}>
                                     <span>
                                         {
                                             showPassword ? (
                                                 <FaEyeSlash />
-                                            ) :
+                                            )
+                                                :
                                                 (
                                                     <FaEye />
                                                 )
@@ -110,10 +110,12 @@ function Login() {
                         </div>
 
                         <button className='bg-red-600 hover:bg-red-700 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-6'>Login</button>
-                    </form>
-                    <p className='my-5'>Don't have account ? <Link to={"/sign-up"} className=' text-red-600 hover:text-red-700 hover:underline'>Sign up</Link></p>
 
+                    </form>
+
+                    <p className='my-5'>Don't have account ? <Link to={"/sign-up"} className=' text-red-600 hover:text-red-700 hover:underline'>Sign up</Link></p>
                 </div>
+
             </div>
         </section>
     )

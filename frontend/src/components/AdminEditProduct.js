@@ -66,6 +66,7 @@ const AdminEditProduct = ({
 
     }
 
+
     {/**upload product */ }
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -91,6 +92,7 @@ const AdminEditProduct = ({
         if (responseData.error) {
             toast.error(responseData?.message)
         }
+
 
     }
 
@@ -160,7 +162,7 @@ const AdminEditProduct = ({
                                     {
                                         data.productImage.map((el, index) => {
                                             return (
-                                                <div key={index} className='relative group'>
+                                                <div className='relative group'>
                                                     <img
                                                         src={el}
                                                         alt={el}

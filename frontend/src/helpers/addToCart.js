@@ -28,7 +28,6 @@ const addToCart = async (e, id) => {
 
 
     return responseData
-
 }
 
 

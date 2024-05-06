@@ -1,17 +1,16 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import { Home } from "../pages/Home";
-import Login from "../pages/Login";
-import ForgotPassword from "../pages/ForgotPassword";
-import SignUp from "../pages/SignUp";
-import AdminPanel from "../pages/AdminPanel";
-import AllUsers from "../pages/AllUsers";
-import AllProducts from "../pages/AllProducts";
-import CategoryProduct from "../pages/CategoryProduct";
-import ProductDetails from "../pages/ProductDetails";
-import Cart from "../pages/Cart";
-import SearchProduct from "../pages/SearchProduct";
-
+import { createBrowserRouter } from 'react-router-dom'
+import App from '../App'
+import Login from '../pages/Login'
+import SignUp from '../pages/SignUp'
+import AdminPanel from '../pages/AdminPanel'
+import AllUsers from '../pages/AllUsers'
+import AllProducts from '../pages/AllProducts'
+import CategoryProduct from '../pages/CategoryProduct'
+import ProductDetails from '../pages/ProductDetails'
+import Cart from '../pages/Cart'
+import SearchProduct from '../pages/SearchProduct'
+import ForgotPassword from '../pages/ForgotPassword'
+import { Home } from '../pages/Home'
 
 const router = createBrowserRouter([
     {
@@ -19,19 +18,19 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <Home />
             },
             {
-                path: "/login",
+                path: "login",
                 element: <Login />
             },
             {
-                path: "/forgot-password",
+                path: "forgot-password",
                 element: <ForgotPassword />
             },
             {
-                path: "/sign-up",
+                path: "sign-up",
                 element: <SignUp />
             },
             {
@@ -65,8 +64,8 @@ const router = createBrowserRouter([
                 ]
             },
         ]
-    },
-]);
+    }
+])
 
 
-export default router;
+export default router
