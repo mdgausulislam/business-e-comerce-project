@@ -23,6 +23,8 @@ const updateAddToCartProduct = require("../controllers/product/updateAddToCartPr
 const deleteAddToCartProduct = require("../controllers/user/deleteAddToCartProduct");
 const searchProduct = require("../controllers/product/searchProduct");
 const filterProductController = require("../controllers/product/filterProduct");
+const forgotPasswordController = require("../controllers/user/forgotPasswordController");
+const resetPasswordController = require("../controllers/user/resetPasswordController");
 
 router.post("/signup", userSignUpController)
 router.post("/signin", userSignInController)
@@ -33,6 +35,10 @@ router.get("/userLogout", userLogout)
 //admin panel 
 router.get("/all-user", authToken, allUsers)
 router.post("/update-user", authToken, updateUser)
+
+//forget password
+router.post("/forgot-password", forgotPasswordController);
+router.post("/reset-password", resetPasswordController);
 
 
 //product

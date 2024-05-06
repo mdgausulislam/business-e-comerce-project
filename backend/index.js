@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-// const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser')
 
 require("dotenv").config();
@@ -13,8 +12,6 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
-// app.use(bodyParser.json()); // Parse JSON bodies
-// app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(cookieParser())
 app.use("/api", router)
 
