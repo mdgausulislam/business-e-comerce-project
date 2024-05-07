@@ -197,9 +197,9 @@ const Header = () => {
     return (
         <header className='h-16 shadow-md bg-white fixed w-full z-40'>
             <div className=' h-full container mx-auto flex items-center px-4 justify-between'>
-                <div className=''>
+                <div className='font-bold text-red-600 text-2xl'>
                     <Link to={"/"}>
-                        <h1>Hemo</h1>
+                        <h1>He<span className='text-green-600'>mooo</span></h1>
                     </Link>
                 </div>
 
