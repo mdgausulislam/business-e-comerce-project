@@ -15,7 +15,6 @@ const updateProductController = require("../controllers/product/updateProduct");
 const getCategoryProduct = require("../controllers/product/getCategoryProductOne");
 const getCategoryWiseProduct = require("../controllers/product/getCategoryWiseProduct");
 const getProductDetails = require("../controllers/product/getProductDetails");
-const addToCartController = require("../controllers/user/addToCartController");
 const countAddToCartProduct = require("../controllers/user/countAddToCartProduct");
 const addToCartViewProduct = require("../controllers/user/addToCartViewProduct");
 const updateAddToCartProduct = require("../controllers/user/updateAddToCartProduct");
@@ -23,6 +22,7 @@ const deleteAddToCartProduct = require("../controllers/user/deleteAddToCartProdu
 const searchProduct = require("../controllers/product/searchProduct");
 const filterProductController = require("../controllers/product/filterProduct");
 const userDetailsController = require("../controllers/user/userDetails");
+const addToCartController = require("../controllers/user/addToCartController");
 
 router.post("/signup", userSignUpController)
 router.post("/signin", userSignInController)
