@@ -1,4 +1,4 @@
-const addToCartModel = require("../../models/ProductModel")
+const addToCartModel = require("../../models/cartProduct")
 
 const countAddToCartProduct = async (req, res) => {
     try {
