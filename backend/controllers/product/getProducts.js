@@ -1,6 +1,5 @@
 const productModel = require("../../models/ProductModel")
 
-
 const getProductController = async (req, res) => {
     try {
         const allProduct = await productModel.find().sort({ createdAt: -1 })

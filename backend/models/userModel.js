@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 const userSchema = new mongoose.Schema({
     name: String,
     email: {
@@ -10,8 +11,6 @@ const userSchema = new mongoose.Schema({
     password: String,
     profilePic: String,
     role: String,
-    resetToken: String,
-    resetTokenExpiry: Date // Date when the reset token expires
 }, {
     timestamps: true
 })

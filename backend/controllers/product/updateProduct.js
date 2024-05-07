@@ -1,7 +1,6 @@
 const uploadProductPermission = require("../../helpers/permission")
 const productModel = require("../../models/ProductModel")
 
-
 async function updateProductController(req, res) {
     try {
 
