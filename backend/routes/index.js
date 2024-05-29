@@ -52,9 +52,4 @@ router.post("/update-cart-product", updateAddToCartProduct)
 router.post("/delete-cart-product", deleteAddToCartProduct)
 
 
-
-
-
-
-
 module.exports = router
