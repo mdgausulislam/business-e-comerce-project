@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,37 +10,44 @@ import SummaryApi from './common';
 import Context from './context';
 import { useDispatch } from 'react-redux';
 import { setUserDetails } from './store/userSlice';
-import Header from './components/Header';
 
 
 function App() {
   const dispatch = useDispatch()
   const [cartProductCount, setCartProductCount] = useState(0)
 
+
   const fetchUserDetails = async () => {
+    const token = localStorage.getItem('token');
+
     const dataResponse = await fetch(SummaryApi.current_user.url, {
       method: SummaryApi.current_user.method,
-      // credentials: 'include'
-    })
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
 
-    const dataApi = await dataResponse.json()
+    const dataApi = await dataResponse.json();
 
     if (dataApi.success) {
-      console.log("data api login", dataApi);
-      dispatch(setUserDetails(dataApi.data))
+      dispatch(setUserDetails(dataApi.data));
     }
-  }
+  };
 
   const fetchUserAddToCart = async () => {
+    const token = localStorage.getItem('token');
+
     const dataResponse = await fetch(SummaryApi.addToCartProductCount.url, {
       method: SummaryApi.addToCartProductCount.method,
-      // credentials: 'include'
-    })
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
 
-    const dataApi = await dataResponse.json()
+    const dataApi = await dataResponse.json();
 
-    setCartProductCount(dataApi?.data?.count)
-  }
+    setCartProductCount(dataApi?.data?.count);
+  };
 
   useEffect(() => {
     /**user Details */

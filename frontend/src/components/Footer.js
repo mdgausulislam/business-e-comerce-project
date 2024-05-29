@@ -1,99 +1,60 @@
-import {
-    FaInstagram,
-    FaDribbble,
-    FaXTwitter,
-    FaYoutube,
-} from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import './Footer.css'
 
 const Footer = () => {
-    const socialLinks = [
-        { label: "YouTube", icon: FaYoutube },
-        { label: "Instagram", icon: FaInstagram },
-        { label: "Twitter", icon: FaXTwitter },
-        { label: "Dribbble", icon: FaDribbble },
-    ];
-
-    const links = [
-        [
-            { label: "Company", key: "header-1" },
-            { label: "About us", key: "item-1-1" },
-            { label: "Blog", key: "item-1-2" },
-            { label: "Contact us", key: "item-1-3" },
-            { label: "Pricing", key: "item-1-4" },
-            { label: "Testimonials", key: "item-1-5" },
-        ],
-        [
-            { label: "Support", key: "header-2" },
-            { label: "Help center", key: "item-2-1" },
-            { label: "Terms of service", key: "item-2-2" },
-            { label: "Legal", key: "item-2-3" },
-            { label: "Privacy policy", key: "item-2-4" },
-            { label: "Status", key: "item-2-5" },
-        ],
-    ];
-
     return (
-        <div className="app min-h-screen flex items-end justify-center font-poppins">
-            <div className="py-16 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 bg-green-800 text-white w-full p-4 relative">
-                <div className="  ">
-                    <div className="footer-img flex items-center">
-                        <img
-                            src={"https://i.imgur.com/520zDfd.png"}
-                            alt=""
-                            className="w-16 h-auto"
-                        />
-                        <span className="text-3xl font-bold pl-2 text-white">
-                            Hemooooo
-                        </span>
+        <div>
+            <footer className="footer p-10 bg-base-200 text-base-content">
+                <nav>
+                    <h1  className='pb-4'> Hemo</h1>
+                    <p className='text-base'>Latin literature from 45 BC, making it over 2000 <br /> years old. Richard McClintock, a Latin professor at <br /> Hampde</p>
+
+                    <div className='grid grid-flow-col gap-4 pt-4 social-icons'>
+                        <Link><FaLinkedinIn /></Link>
+                        <Link><FaInstagram /></Link>
+                        <Link><FaTwitter /></Link>
                     </div>
-                    <div className="infos text-gray-400">
-                        <span>Copyright © 2020 Nexcent ltd.</span>
-                        <span>All rights reserved</span>
+
+                </nav>
+                <nav>
+                    <h6 className="footer-title">Support</h6>
+                    <Link className="link link-hover">Privacy Policy</Link>
+                    <Link className="link link-hover">Terms & Conditions</Link>
+                    <Link className="link link-hover">Product FAQs</Link>
+                    <Link className="link link-hover">Company Support</Link>
+                    <Link className="link link-hover">Manage Account</Link>
+                </nav>
+                <nav>
+                    <h6 className="footer-title">Quick Links</h6>
+                    <Link className="link link-hover">About Us</Link>
+                    <Link className="link link-hover">Blog Post</Link>
+                    <Link className="link link-hover">Product Features</Link>
+                    <Link className="link link-hover">Company Info</Link>
+                    <Link className="link link-hover">Company Info</Link>
+                </nav>
+                <nav>
+                    <h6 className="footer-title">Communnity</h6>
+                    <Link className="link link-hover">Become an affiliate</Link>
+                    <Link className="link link-hover">Help Center</Link>
+                    <Link className="link link-hover">Product FAQs</Link>
+                    <Link className="link link-hover">Our Fourms</Link>
+                    <Link className="link link-hover">Product API</Link>
+                </nav>
+            </footer>
+            <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+                <aside className="items-center grid-flow-col">
+                    <p>Copyright © 2023 All rights reserved by Eyeglass</p>
+                </aside>
+                <nav className="md:place-self-center md:justify-self-end">
+                    <div className="grid grid-flow-col gap-4">
+                        <Link className="link link-hover">Privacy Policy</Link>
+                        <Link className="link link-hover">Privacy Policy</Link>
                     </div>
-                    <div className="footer-icons flex items-center space-x-3">
-                        {socialLinks.map((socialLink, index) => {
-                            const Icon = socialLink.icon;
-                            return (
-                                <Icon
-                                    key={`social-${index}`}
-                                    className="w-14 h-14 p-2 rounded-full bg-green-700 hover:bg-white hover:text-green-700 cursor-pointer"
-                                />
-                            );
-                        })}
-                    </div>
-                </div>
-                <div className="mx-2 grid w-full py-5 sm:py-0 grid-cols-2 ">
-                    {links.map((col, index) => {
-                        return (
-                            <ul className={`col col-${index + 1}`} key={`col-${index}`}>
-                                {col.map((link, index) => {
-                                    return (
-                                        <li
-                                            key={`link-${col}-${index}`}
-                                            className={`text-gray-400 cursor-pointer ${link.key === "header-1" || link.key === "header-2"
-                                                ? "text-2xl text-white"
-                                                : ""
-                                                }`}
-                                        >
-                                            {link.label}
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        );
-                    })}
-                </div>
-                <div className="footer-form flex flex-col  ">
-                    <label className="text-lg font-semibold text-white">
-                        Stay up to date
-                    </label>
-                    <input
-                        type="email"
-                        placeholder="Subscribe to our email"
-                        className="mt-2 w-full border-none rounded-lg py-3 px-6"
-                    />
-                </div>
-            </div>
+                </nav>
+            </footer>
         </div>
     );
 };

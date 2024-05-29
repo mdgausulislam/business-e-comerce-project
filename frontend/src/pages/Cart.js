@@ -15,9 +15,9 @@ const Cart = () => {
 
         const response = await fetch(SummaryApi.addToCartProductView.url, {
             method: SummaryApi.addToCartProductView.method,
-            // credentials: 'include',
             headers: {
-                "content-type": 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
         })
 
@@ -45,9 +45,9 @@ const Cart = () => {
     const increaseQty = async (id, qty) => {
         const response = await fetch(SummaryApi.updateCartProduct.url, {
             method: SummaryApi.updateCartProduct.method,
-            // credentials: 'include',
             headers: {
-                "content-type": 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(
                 {
@@ -70,9 +70,9 @@ const Cart = () => {
         if (qty >= 2) {
             const response = await fetch(SummaryApi.updateCartProduct.url, {
                 method: SummaryApi.updateCartProduct.method,
-                // credentials: 'include',
                 headers: {
-                    "content-type": 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify(
                     {
@@ -94,9 +94,9 @@ const Cart = () => {
     const deleteCartProduct = async (id) => {
         const response = await fetch(SummaryApi.deleteCartProduct.url, {
             method: SummaryApi.deleteCartProduct.method,
-            // credentials: 'include',
             headers: {
-                "content-type": 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(
                 {

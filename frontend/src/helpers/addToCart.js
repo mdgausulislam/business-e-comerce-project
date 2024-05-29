@@ -7,9 +7,9 @@ const addToCart = async (e, id) => {
 
     const response = await fetch(SummaryApi.addToCartProduct.url, {
         method: SummaryApi.addToCartProduct.method,
-        // credentials: 'include',
         headers: {
-            "content-type": 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         body: JSON.stringify(
             { productId: id }
@@ -28,6 +28,7 @@ const addToCart = async (e, id) => {
 
 
     return responseData
+
 }
 
 

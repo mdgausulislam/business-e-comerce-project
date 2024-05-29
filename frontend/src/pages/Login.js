@@ -27,33 +27,32 @@ const Login = () => {
         })
     }
 
-
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const dataResponse = await fetch(SummaryApi.signIn.url, {
             method: SummaryApi.signIn.method,
-            // credentials: 'include',
             headers: {
-                "content-type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
-        })
+        });
 
-        const dataApi = await dataResponse.json()
+        const dataApi = await dataResponse.json();
 
         if (dataApi.success) {
-            toast.success(dataApi.message)
-            navigate('/')
-            fetchUserDetails()
-            fetchUserAddToCart()
+            localStorage.setItem('token', dataApi.data.token); // Store token in localStorage
+            toast.success(dataApi.message);
+            navigate('/');
+            fetchUserDetails();
+            fetchUserAddToCart();
         }
 
         if (dataApi.error) {
-            toast.error(dataApi.message)
+            toast.error(dataApi.message);
         }
+    };
 
-    }
 
     console.log("data login", data)
 
@@ -116,11 +115,10 @@ const Login = () => {
                     <p className='my-5'>Don't have account ? <Link to={"/sign-up"} className=' text-red-600 hover:text-red-700 hover:underline'>Sign up</Link></p>
                 </div>
 
+
             </div>
         </section>
     )
 }
 
 export default Login
-
-

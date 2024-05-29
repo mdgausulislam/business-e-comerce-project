@@ -16,26 +16,30 @@ const AllUsers = () => {
     })
 
     const fetchAllUsers = async () => {
-        const fetchData = await fetch(SummaryApi.allUser.url, {
-            method: SummaryApi.allUser.method,
-            // credentials: 'include'
-        })
+        try {
+            const fetchData = await fetch(SummaryApi.allUser.url, {
+                method: SummaryApi.allUser.method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
 
-        const dataResponse = await fetchData.json()
+            const dataResponse = await fetchData.json();
 
-        if (dataResponse.success) {
-            setAllUsers(dataResponse.data)
+            if (dataResponse.success) {
+                setAllUsers(dataResponse.data);
+            } else {
+                toast.error(dataResponse.message);
+            }
+        } catch (error) {
+            toast.error("An error occurred while fetching users.");
         }
-
-        if (dataResponse.error) {
-            toast.error(dataResponse.message)
-        }
-
-    }
+    };
 
     useEffect(() => {
-        fetchAllUsers()
-    }, [])
+        fetchAllUsers();
+    }, []);
 
     return (
         <div className='bg-white pb-4'>
