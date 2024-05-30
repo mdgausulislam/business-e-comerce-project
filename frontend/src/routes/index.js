@@ -11,6 +11,7 @@ import Cart from '../pages/Cart'
 import SearchProduct from '../pages/SearchProduct'
 import ForgotPassword from '../pages/ForgotPassword'
 import { Home } from '../pages/Home'
+import Payment from '../components/Payment'
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
                 path: "search",
                 element: <SearchProduct />
             },
+            {
+                path: "payment",
+                element: <Payment />
+            },
+
             {
                 path: "admin-panel",
                 element: <AdminPanel />,

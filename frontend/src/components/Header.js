@@ -4,11 +4,11 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import SummaryApi from '../common';
 import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice';
 import ROLE from '../common/role';
 import Context from '../context';
+import Logo from '../assest/logo.jpg'
 
 const Header = () => {
   const user = useSelector(state => state?.user?.user)
@@ -43,8 +43,9 @@ const Header = () => {
     <header className='h-16 shadow-md bg-white fixed w-full z-40'>
       <div className=' h-full container mx-auto flex items-center px-4 justify-between'>
         <div className=''>
-          <Link to={"/"}>
-           <h1>Hemo</h1>
+          <Link to={"/"} className='flex items-center'>
+            <img src={Logo} alt="Logo" className='w-12 pr-3' />
+            <h1 className='text-xl font-extrabold'>Hemo</h1>
           </Link>
         </div>
 

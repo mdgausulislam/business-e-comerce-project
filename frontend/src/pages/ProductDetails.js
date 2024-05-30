@@ -216,20 +216,12 @@ const ProductDetails = () => {
               </div>
             )
         }
-
       </div>
-
-
-
       {
         data.category && (
           <CategroyWiseProductDisplay category={data?.category} heading={"Recommended Product"} />
         )
       }
-
-
-
-
     </div>
   )
 }

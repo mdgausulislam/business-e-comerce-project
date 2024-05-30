@@ -3,13 +3,17 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import './Footer.css'
+import Logo from '../assest/logo.jpg'
 
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <nav>
-                    <h1  className='pb-4'> Hemo</h1>
+                    <Link to={"/"} className='flex items-center'>
+                        <img src={Logo} alt="Logo" className='w-16 pr-3' />
+                        <h1 className='text-xl font-extrabold'>Hemo</h1>
+                    </Link>
                     <p className='text-base'>Latin literature from 45 BC, making it over 2000 <br /> years old. Richard McClintock, a Latin professor at <br /> Hampde</p>
 
                     <div className='grid grid-flow-col gap-4 pt-4 social-icons'>
