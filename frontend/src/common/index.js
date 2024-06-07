@@ -1,4 +1,5 @@
-const backendDomin = "https://business-e-comerce-project.onrender.com"
+// const backendDomin = "https://business-e-comerce-project.onrender.com"
+const backendDomin = "http://localhost:8080"
 
 const SummaryApi = {
     signUP: {
@@ -76,7 +77,20 @@ const SummaryApi = {
     filterProduct: {
         url: `${backendDomin}/api/filter-product`,
         method: 'post'
+    },
+    payment: {
+        url: `${backendDomin}/api/checkOut`,
+        method: 'post'
+    },
+    getOrder: {
+        url: `${backendDomin}/api/order-list`,
+        method: 'get'
+    },
+    allOrder: {
+        url: `${backendDomin}/api/all-order`,
+        method: 'get'
     }
+
 }
 
 export default SummaryApi

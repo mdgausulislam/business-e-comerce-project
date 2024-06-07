@@ -13,7 +13,7 @@ async function authToken(req, res, next) {
             });
         }
 
-        const secretToken = "24079d10374ffeefe43a27019e0f5ed5bc09c273c71b342b13f391fb5dd096e92651ee7fc60b61a6418a9e0ca3a4d784";
+        const secretToken = process.env.TOKEN_SECRET_KEY;
 
         jwt.verify(token, secretToken, function (err, decoded) {
             if (err) {

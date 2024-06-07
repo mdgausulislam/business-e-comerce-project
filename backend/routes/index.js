@@ -22,6 +22,10 @@ const updateAddToCartProduct = require('../controllers/user/updateAddToCartProdu
 const deleteAddToCartProduct = require('../controllers/user/deleteAddToCartProduct')
 const searchProduct = require('../controllers/product/searchProduct')
 const filterProductController = require('../controllers/product/filterProduct')
+const paymentController = require('../controllers/Order/paymentController')
+const webhooks = require('../controllers/Order/webhook')
+const orderController = require('../controllers/Order/orderController')
+const allOrderController = require('../controllers/Order/allOrderController')
 
 
 
@@ -52,7 +56,12 @@ router.post("/update-cart-product", authToken, updateAddToCartProduct)
 router.post("/delete-cart-product", authToken, deleteAddToCartProduct)
 
 
+//payment and order
 
+router.post("/checkOut", authToken, paymentController)
+router.post('/webhook', webhooks) // /api/webhook
+router.get("/order-list", authToken, orderController)
+router.get("/all-order", authToken, allOrderController)
 
 
 

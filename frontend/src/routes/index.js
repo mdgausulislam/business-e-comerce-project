@@ -12,6 +12,10 @@ import SearchProduct from '../pages/SearchProduct'
 import ForgotPassword from '../pages/ForgotPassword'
 import { Home } from '../pages/Home'
 import Payment from '../components/Payment'
+import PaymentSuccess from '../pages/PaymentSuccess'
+import PaymentCancel from '../pages/PaymentCancel'
+import OrderPage from '../pages/OrderPage'
+import AllOrder from '../pages/AllOrder'
 
 const router = createBrowserRouter([
     {
@@ -47,13 +51,22 @@ const router = createBrowserRouter([
                 element: <Cart />
             },
             {
+                path: 'success',
+                element: <PaymentSuccess />
+            },
+            {
+                path: 'cancel',
+                element: <PaymentCancel />
+            },
+            {
                 path: "search",
                 element: <SearchProduct />
             },
             {
-                path: "payment",
-                element: <Payment />
+                path: "order",
+                element: <OrderPage />
             },
+
 
             {
                 path: "admin-panel",
@@ -66,7 +79,12 @@ const router = createBrowserRouter([
                     {
                         path: "all-products",
                         element: <AllProducts />
-                    }
+                    },
+                    {
+                        path: "all-orders",
+                        element: <AllOrder />
+                    },
+
                 ]
             },
         ]
