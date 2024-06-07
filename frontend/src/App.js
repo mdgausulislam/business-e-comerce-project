@@ -64,7 +64,8 @@ function App() {
         fetchUserAddToCart
       }}>
         <ToastContainer
-          position='top-center'
+          position="top-center"
+          className="hidden lg:block" // Hide on small devices, show on large devices
         />
 
         <Header />

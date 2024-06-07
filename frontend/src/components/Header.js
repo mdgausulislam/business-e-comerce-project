@@ -44,8 +44,8 @@ const Header = () => {
       <div className=' h-full container mx-auto flex items-center px-4 justify-between'>
         <div className=''>
           <Link to={"/"} className='flex items-center'>
-            <img src={Logo} alt="Logo" className='w-12 pr-3' />
-            <h1 className='text-xl font-extrabold'>Hemo</h1>
+            <img src={Logo} alt="Logo" className='w-16 pr-3' />
+            <h1 className='text-2xl font-extrabold'>Hemo</h1>
           </Link>
         </div>
 

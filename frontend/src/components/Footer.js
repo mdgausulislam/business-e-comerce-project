@@ -1,8 +1,5 @@
-import { FaLinkedinIn } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaTwitter } from "react-icons/fa";
+import { FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import './Footer.css'
 import Logo from '../assest/logo.jpg'
 
 const Footer = () => {
@@ -14,17 +11,26 @@ const Footer = () => {
                         <img src={Logo} alt="Logo" className='w-16 pr-3' />
                         <h1 className='text-xl font-extrabold'>Hemo</h1>
                     </Link>
-                    <p className='text-base'>Latin literature from 45 BC, making it over 2000 <br /> years old. Richard McClintock, a Latin professor at <br /> Hampde</p>
+                    <p className='text-base'>
+                        Latin literature from 45 BC, making it over 2000 <br />
+                        years old. Richard McClintock, a Latin professor at <br />
+                        Hampde
+                    </p>
 
                     <div className='grid grid-flow-col gap-4 pt-4 social-icons'>
-                        <Link><FaLinkedinIn /></Link>
-                        <Link><FaInstagram /></Link>
-                        <Link><FaTwitter /></Link>
+                        <Link className="flex items-center justify-center w-8 h-8 border border-yellow-300 rounded-full hover:bg-yellow-500 hover:text-white">
+                            <FaLinkedinIn />
+                        </Link>
+                        <Link className="flex items-center justify-center w-8 h-8 border border-yellow-300 rounded-full hover:bg-yellow-500 hover:text-white">
+                            <FaInstagram />
+                        </Link>
+                        <Link className="flex items-center justify-center w-8 h-8 border border-yellow-300 rounded-full hover:bg-yellow-500 hover:text-white">
+                            <FaTwitter />
+                        </Link>
                     </div>
-
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Support</h6>
+                    <h6 className="text-lg font-bold text-gray-800 pb-4">Support</h6>
                     <Link className="link link-hover">Privacy Policy</Link>
                     <Link className="link link-hover">Terms & Conditions</Link>
                     <Link className="link link-hover">Product FAQs</Link>
@@ -32,7 +38,7 @@ const Footer = () => {
                     <Link className="link link-hover">Manage Account</Link>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Quick Links</h6>
+                    <h6 className="text-lg font-bold text-gray-800 pb-4">Quick Links</h6>
                     <Link className="link link-hover">About Us</Link>
                     <Link className="link link-hover">Blog Post</Link>
                     <Link className="link link-hover">Product Features</Link>
@@ -40,11 +46,11 @@ const Footer = () => {
                     <Link className="link link-hover">Company Info</Link>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Communnity</h6>
+                    <h6 className="text-lg font-bold text-gray-800 pb-4">Community</h6>
                     <Link className="link link-hover">Become an affiliate</Link>
                     <Link className="link link-hover">Help Center</Link>
                     <Link className="link link-hover">Product FAQs</Link>
-                    <Link className="link link-hover">Our Fourms</Link>
+                    <Link className="link link-hover">Our Forums</Link>
                     <Link className="link link-hover">Product API</Link>
                 </nav>
             </footer>

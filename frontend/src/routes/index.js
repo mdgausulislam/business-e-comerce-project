@@ -11,7 +11,6 @@ import Cart from '../pages/Cart'
 import SearchProduct from '../pages/SearchProduct'
 import ForgotPassword from '../pages/ForgotPassword'
 import { Home } from '../pages/Home'
-import Payment from '../components/Payment'
 import PaymentSuccess from '../pages/PaymentSuccess'
 import PaymentCancel from '../pages/PaymentCancel'
 import OrderPage from '../pages/OrderPage'
@@ -66,7 +65,6 @@ const router = createBrowserRouter([
                 path: "order",
                 element: <OrderPage />
             },
-
 
             {
                 path: "admin-panel",
